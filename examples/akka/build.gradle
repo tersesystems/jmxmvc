@@ -1,0 +1,41 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    jcenter()
+    mavenLocal()
+    maven {
+        url  "https://dl.bintray.com/tersesystems/maven"
+    }
+}
+
+// Type "gradle --continuous run" from command line to run this.
+application {
+    mainClassName = 'com.tersesystems.jmxmvc.examples.akka.Main'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    implementation "com.tersesystems.jmxmvc:jmxmvc:0.0.0"
+    implementation "com.tersesystems.jmxbuilder:jmxbuilder:0.0.2"
+    implementation "com.typesafe.akka:akka-slf4j_2.12:2.5.27"
+    implementation "com.typesafe.akka:akka-actor_2.12:2.5.27"
+    implementation "ch.qos.logback:logback-classic:1.2.3"
+    implementation "org.slf4j:jul-to-slf4j:1.7.25"
+
+    testImplementation "com.typesafe.akka:akka-testkit_2.12:2.5.27"
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.3.1'
+    testImplementation ("org.assertj:assertj-core:3.11.1")
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
