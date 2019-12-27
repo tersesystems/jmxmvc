@@ -24,6 +24,10 @@ It is based on the OpenDMK examples from Sun Microsystems available at https://g
 
 There are two examples, one which displays Akka Actors in JMX according to the model, and another one which displays the alphabet.
 
+For example, if you open up the Akka example with `./gradlew run` and then use the `createChild` operation a few times, you get this:
+
+![akka.png](akka.png)
+
 ## Why use virtual mbeans?
 
 JMX is built around the concept of MBeans and an MBeanServer.  All of the methods involving JMX (Standard MBeans, MXBeans, Dynamic MBeans, Open MBeans, Model MBeans) have the common end point of registering an object instance directly against an MBeanServer:
